@@ -15,19 +15,6 @@ Supporta oltre 25 linguaggi di programmazione, tra cui Python, JavaScript, Java,
 * Python 3.8+
 * tkinter (incluso nella stdlib)
 
-## 📁 Struttura del progetto
-
-```
-CodeFileSigner-Pro/
-├─ src/
-│  └─ filesigner.py        # Codice principale dell'app
-├─ README.md               # Questo file
-├─ LICENSE                 # Licenza MIT
-├─ requirements.txt        # Dipendenze Python
-├─ .gitignore              # File e cartelle ignorati da git
-└─ icon.ico (opzionale)   # Icona dell'app
-```
-
 ## ⚡ Installazione
 
 1. Clona la repository:
