@@ -12,7 +12,9 @@ import time
 import json
 import base64
 
-# ============= PROTEZIONE UNIVOCA DEL SOFTWARE =============
+# ══════════════════════════════════════════════════════════════════════════════
+# 🔐 PROTEZIONE UNIVOCA DEL SOFTWARE
+# ══════════════════════════════════════════════════════════════════════════════
 
 class SoftwareProtection:
     """Sistema di protezione e licenza univoca"""
@@ -64,6 +66,10 @@ LICENSE_KEY = SoftwareProtection.get_license_key()
 SOFTWARE_SIGNATURE = SoftwareProtection.get_software_signature()
 WATERMARK = SoftwareProtection.get_watermark()
 
+# ══════════════════════════════════════════════════════════════════════════════
+# 🎨 TEMA E COLORI (Dark Modern)
+# ══════════════════════════════════════════════════════════════════════════════
+
 BG_PRIMARY = "#0f172a"
 BG_SECONDARY = "#1e293b"
 BG_ACCENT = "#1a237e"
@@ -72,6 +78,10 @@ SUCCESS_COLOR = "#10b981"
 ERROR_COLOR = "#ef4444"
 TEXT_PRIMARY = "#f1f5f9"
 TEXT_SECONDARY = "#94a3b8"
+
+# ══════════════════════════════════════════════════════════════════════════════
+# 💬 STILI DI COMMENTO PER LINGUAGGI
+# ══════════════════════════════════════════════════════════════════════════════
 
 COMMENT_STYLES = {
     ".py": "#",
@@ -106,6 +116,10 @@ CLOSING_COMMENT = {
     "/*": "*/",
 }
 
+# ══════════════════════════════════════════════════════════════════════════════
+# ✍️ FUNZIONI DI FIRMA DIGITALE
+# ══════════════════════════════════════════════════════════════════════════════
+
 def get_comment_lines(ext, signature, file_hash, timestamp):
     """Genera le linee di commento per la firma (corretto)"""
     ext = ext.lower()
@@ -136,7 +150,7 @@ def get_comment_lines(ext, signature, file_hash, timestamp):
     return signature_line, hash_line, time_line
 
 def extract_signature_data(file_path):
-    """Estrae firma e hash dal file (corretto)"""
+    """Estrae firma e hash dal file"""
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
     
@@ -152,7 +166,7 @@ def extract_signature_data(file_path):
     }
 
 def remove_signature_lines(content):
-    """Rimuove le linee di firma dal contenuto - VERSIONE ROBUSTA"""
+    """Rimuove le linee di firma dal contenuto normalizzando il testo"""
     lines = content.split('\n')
     filtered = []
     for line in lines:
@@ -167,7 +181,7 @@ def remove_signature_lines(content):
     return result
 
 def add_signature(file_path, progress_callback=None):
-    """Aggiunge firma al file (CORRETTO)"""
+    """Aggiunge firma digitale SHA256 + UUID + timestamp al file"""
     try:
         if not os.path.exists(file_path):
             return False, f"Il file {file_path} non esiste."
@@ -205,7 +219,7 @@ def add_signature(file_path, progress_callback=None):
         return False, f"Errore durante la firma: {str(e)}"
 
 def verify_signature(file_path, progress_callback=None):
-    """Verifica la firma del file (CORRETTO)"""
+    """Verifica l'integrità del file confrontando l'hash SHA256 attuale con quello memorizzato"""
     try:
         if not os.path.exists(file_path):
             return False, f"Il file {file_path} non esiste."
@@ -233,7 +247,9 @@ def verify_signature(file_path, progress_callback=None):
     except Exception as e:
         return False, f"Errore durante la verifica: {str(e)}"
 
-# ============== GUI ==============
+# ══════════════════════════════════════════════════════════════════════════════
+# 🖥️ INTERFACCIA GRAFICA (GUI MODERNA DARK THEME)
+# ══════════════════════════════════════════════════════════════════════════════
 
 class FileSigner(tk.Tk):
     def __init__(self):
@@ -668,6 +684,10 @@ class FileSigner(tk.Tk):
                 self.update_status(f"✗ Errore durante la rimozione", ERROR_COLOR)
                 messagebox.showerror("❌ Errore", f"Errore: {str(e)}")
 
+
+# ══════════════════════════════════════════════════════════════════════════════
+# 🚀 PUNTO DI INGRESSO APPLICAZIONE
+# ══════════════════════════════════════════════════════════════════════════════
 
 if __name__ == "__main__":
     try:
