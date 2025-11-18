@@ -233,7 +233,7 @@ def verify_signature(file_path, progress_callback=None):
     except Exception as e:
         return False, f"Errore durante la verifica: {str(e)}"
 
-# ============== GUI MODERNA ==============
+# ============== GUI ==============
 
 class FileSigner(tk.Tk):
     def __init__(self):
