@@ -54,6 +54,8 @@ La GUI permette di:
 * Rimuovere firme in modo sicuro
 * Visualizzare informazioni sulla licenza e watermark unico
 
+<img width="1277" height="1308" alt="image" src="https://github.com/user-attachments/assets/52eee76e-e558-4dc7-a82d-c0bdf1e6e9d5" />
+
 ## 📌 Caratteristiche
 
 * Firma digitale unica per macchina (UUID + SHA256)
