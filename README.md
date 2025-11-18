@@ -32,12 +32,6 @@ source venv/bin/activate  # macOS / Linux
 venv\Scripts\activate     # Windows
 ```
 
-3. Installa le dipendenze:
-
-```bash
-pip install -r requirements.txt
-```
-
 ## 🚀 Uso
 
 Esegui l'app:
